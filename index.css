@@ -7,7 +7,8 @@
     box-sizing: border-box;
     
 }
-body {
+body{
+    background-color: rgb(243, 226, 226)!important;
    font-family: sans-serif; 
    
    
@@ -43,7 +44,7 @@ justify-content: space-between;
 }
 /**book a movie**/
 #display-movie {
-    display:;
+    
     grid-template-columns: repeat(2, 200px);
     gap: 30px;
     justify-content: center;
@@ -56,10 +57,7 @@ justify-content: space-between;
         grid-template-columns: repeat(1, 400px);
     }
 }
- .item{
-    border: 2px solid #212529;
-    border-radius: 4px;
- }
+ 
 .details{
     display: flex;
     flex-direction: column;
@@ -67,11 +65,8 @@ justify-content: space-between;
     gap: 10px;
     font-weight: 400;
 }
-.more{
-    display: block;
-    flex-direction: column;
-    font-weight: 900;
-}
+
+
 .button{
     display: flex;
     font-size: 26px;
@@ -103,7 +98,7 @@ h4{
 }
 ul{
     
-    color:red
+    color:darkred
     
 }
 #list{
@@ -114,4 +109,7 @@ ul{
     background-color: green;
     margin-left: 30px;
     color: #fff;
+}
+#time{
+    color: blue;
 }

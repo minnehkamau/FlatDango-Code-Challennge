@@ -1,11 +1,11 @@
 //adding an event listener to our loaded data
 document.addEventListener("DOMContentLoaded",( e) =>{
     e.preventDefault()
-    getMovies();
+    findMovies();
 })
 
 //fetch movie data from json server
-function getMovies(){
+function findMovies(){
 fetch("http://localhost:3000/movies")
 .then((response) => response.json())
 .then (function (data){
@@ -17,7 +17,7 @@ fetch("http://localhost:3000/movies")
 function showMovies(data){
     const movieList = document.querySelector('ul#list');
 
-    //Loop through our displayed data
+    //Loop through the json data
 
     for (let i =0; i<data.length; i++){
         const movie = data[i];
@@ -43,7 +43,7 @@ function movieInfo(movie){
     <p id="brief">Description:${movie.description}</p> 
     <img id = "size" src="${movie.poster}">
 
-    <p>Show Time:${movie.showtime}</p>
+    <p id="time">Show Time:${movie.showtime}</p>
     <p>Runtime:${movie.runtime}</p>
     <p id="capacit">Capacity:${movie.capacity}</p>
     <P id="tickets">Tickets Available:${movie.tickets_sold}</p>

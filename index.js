@@ -1,9 +1,10 @@
-//manipulating the DOM
-document.addEventListener("DOMContentLoaded", ( ) =>{
+//adding an event listener to our loaded data
+document.addEventListener("DOMContentLoaded",( e) =>{
+    e.preventDefault()
     getMovies();
 })
 
-//fetch movies from Json server
+//fetch movie data from json server
 function getMovies(){
 fetch("http://localhost:3000/movies")
 .then((response) => response.json())
@@ -12,42 +13,33 @@ fetch("http://localhost:3000/movies")
 });
 }
 
-// async function getMovies(){
-
-//     try{
-//         const response = await fetch("http://localhost:3000/movies")
-//         return await response.json()
-//     }catch (error){
-//         console.error(error)
-//     }
-// }
-// let movieShow ={}
-// getMovies().then (data => movieShow =data)
-
-// const showEvent=document.que
+//displaying the fetched data from HTML
 function showMovies(data){
     const movieList = document.querySelector('ul#list');
+
+    //Loop through our displayed data
 
     for (let i =0; i<data.length; i++){
         const movie = data[i];
         const filmLi = document.createElement('li');
         filmLi.innerHTML = movie.title;
 
-
+//adding an event listener to our movies which will allow us to display our data
         const line = document.createElement('hr');
         movieList.appendChild(line);
         movieList.appendChild(filmLi);
         filmLi.addEventListener('click',function(){
-            movieDetails(movie)
+            movieInfo(movie)
         })
     }
 }
-
-function movieDetails(movie){
-    const movieDetails= document.getElementById('show-movie');
-    movieDetails.innerHTML=`
+//this function allows us to locate where we will render our data in the html form
+//it also allows us to display all data in the json file at once
+function movieInfo(movie){
+    const movieInfo= document.getElementById('display-movie');
+    movieInfo.innerHTML=
     
-    <p id ="movietag">Title:${movie.title}</p>
+    `<p id ="movietag">Title:${movie.title}</p>
     <p id="brief">Description:${movie.description}</p> 
     <img id = "size" src="${movie.poster}">
 
@@ -55,9 +47,9 @@ function movieDetails(movie){
     <p>Runtime:${movie.runtime}</p>
     <p id="capacit">Capacity:${movie.capacity}</p>
     <P id="tickets">Tickets Available:${movie.tickets_sold}</p>
-   
+   <button id="click-me">PURCHASE</button>`
     
 
 
-`
+
 }

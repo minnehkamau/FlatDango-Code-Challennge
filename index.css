@@ -42,13 +42,13 @@ justify-content: space-between;
 
 }
 /**book a movie**/
-#show-movie {
+#display-movie {
     display:;
     grid-template-columns: repeat(2, 200px);
     gap: 30px;
     justify-content: center;
     font-weight: bolder;
-    font-size: larger;
+    font-size: 30px;
 
 }
 @media(max-width: 1000px){
@@ -85,15 +85,17 @@ justify-content: space-between;
     
 }
 #brief{
-    font-size: 20px;
+    font-size: 30px;
 }
 #zoom{
     font-size: 70px;
     font-weight: 900;
     color: red;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+
 }
 #movietag{
-    font-size: 40px;
+    font-size: 35px;
     
 }
 h4{
@@ -107,4 +109,9 @@ ul{
 #list{
     font-size: 30px;
     font-weight: 700;
+}
+#click-me{
+    background-color: green;
+    margin-left: 30px;
+    color: #fff;
 }

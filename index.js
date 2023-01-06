@@ -50,6 +50,21 @@ function movieInfo(movie){
    <button id="click-me">PURCHASE</button>`
     
 
-
+purchaseTicket(movie)
 
 }
+// funtion for purchasing the tickets 
+function purchaseTicket(movie) {
+    const buyButton = document.getElementById('click-me');
+    buyButton.addEventListener('click', function() {
+        if (movie.tickets_sold > 0) {
+            movie.tickets_sold--;
+            const ticketsRemaining = document.getElementById('tickets');
+            ticketsRemaining.innerHTML = `Tickets Available: ${movie.tickets_sold}`;
+        } else {
+            alert("Sorry, there are no more tickets available for this movie.");
+        }
+    });
+}
+
+
